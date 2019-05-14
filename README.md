@@ -1,27 +1,31 @@
-# Cookbook
+# COOKBOOK
+made by Sophie Gahleitner and Michael Sieghartsleiter
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
+## About cookbook
+Cookbook is an application where users can store their recipes online. As soon as the user is registered it is possible to create own recipes.
+On the one handy the user can view all of the created recipes and on the other hand it is possible to share them with other users.
+
+## Project setup
+```
+npm install
+```
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+```
+ng serve
+```
 
-## Code scaffolding
+### Compile for production
+```
+ng build
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Run your tests
+```
+ng test
+````
+or 
+```
+ng e2e
+```

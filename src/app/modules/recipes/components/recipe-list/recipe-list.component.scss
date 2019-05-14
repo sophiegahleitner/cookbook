@@ -1,0 +1,23 @@
+.sub-navbar {
+  padding: 20px 120px;
+
+  &-item {
+    display: inline-block;
+    list-style-type: none;
+    margin-right: 20px;
+
+    a {
+      color: #888;
+      text-decoration: none;
+    }
+  }
+}
+
+.recipe-list {
+  padding: 0 100px;
+
+  > * {
+    width: 25%;
+    display: inline-block;
+  }
+}
