@@ -1,0 +1,26 @@
+<div class="recipe-create">
+  <h1>Create Recipe</h1>
+  <div class="recipe-create-form">
+    <form [formGroup]="createRecipeForm" (ngSubmit)="onSubmit(createRecipeForm.value)" class="form">
+
+      <mat-form-field class="form-element">
+        <input matInput placeholder="Title" formControlName="title">
+        <mat-error *ngIf="!createRecipeForm.controls['title'].valid && createRecipeForm.controls['title'].touched">
+          {{ titleAlert }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select placeholder="Schwierigkeit" formControlName="difficulty">
+          <mat-option *ngFor="let diff of difficulty" [value]="diff">
+            {{diff}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="form-element">
+        <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!createRecipeForm.valid">Submit Form</button>
+      </div>
+    </form>
+  </div>
+</div>
