@@ -5,13 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 
-import { AuthenticationModule } from "./modules/authentication/authentication.module";
-import { RecipesModule } from "./modules/recipes/recipes.module";
+import { AuthenticationModule } from './modules/authentication/authentication.module';
+import { RecipesModule } from './modules/recipes/recipes.module';
 
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatIconModule } from "@angular/material";
-import { MatMenuModule } from "@angular/material";
+import { MatIconModule } from '@angular/material';
+import { MatMenuModule } from '@angular/material';
+
+import { MaterialModule } from './modules/general/material.module';
+import { GeneralModule } from "./modules/general/general.module";
+
 
 @NgModule({
   declarations: [
@@ -22,9 +26,11 @@ import { MatMenuModule } from "@angular/material";
       AuthenticationModule,
       BrowserAnimationsModule,
       BrowserModule,
+      MaterialModule,
       MatIconModule,
       MatMenuModule,
       RecipesModule,
+      GeneralModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
