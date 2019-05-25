@@ -41,6 +41,7 @@ import {
     MatTooltipModule,
     MatStepperModule,
 } from '@angular/material';
+import {AppRoutingModule} from "../../app-routing.module";
 
 @NgModule({
     declarations: [
@@ -51,6 +52,7 @@ import {
         RecipeCreateComponent,
     ],
     imports: [
+        AppRoutingModule,
         MatAutocompleteModule,
         MatButtonModule,
         MatButtonToggleModule,

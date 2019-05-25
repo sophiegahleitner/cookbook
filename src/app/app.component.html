@@ -4,10 +4,10 @@
   </div>
   <ul class="navbar">
     <li class="navbar-item">
-      <a routerLink="/recipes" routerLinkActive="active">Recipes</a>
+      <a routerLink="/recipes" routerLinkActive="active">Rezepte</a>
     </li>
     <li class="navbar-item">
-      <span [matMenuTriggerFor]="menu">Profile</span>
+      <span [matMenuTriggerFor]="menu" routerLinkActive="active">Profil</span>
       <mat-menu #menu="matMenu">
           <a mat-menu-item routerLink="/profile">View profile</a>
           <a mat-menu-item routerLink="/profile">Edit profile</a>
