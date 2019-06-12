@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+/*import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RecipelistitemComponent } from './recipe-list-item.component';
 
@@ -23,3 +23,4 @@ describe('RecipelistitemComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+*/

@@ -1,37 +1,21 @@
 <div class="recipe-detail">
-  <h1>Rezepttitel</h1>
-  <div class="flex">
-    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-    <div class="recipe">
-      <div class="ingredients">
-        <h2>Zutaten</h2>
-        <ul class="ingredients-list">
-          <li>125g rote Linsen</li>
-          <li>1/2 Doese geschälte Tomaten</li>
-          <li>1/2 Doese geschälte Tomaten</li>
-          <li>1/2 Doese geschälte Tomaten</li>
-          <li>1/2 Doese geschälte Tomaten</li>
-          <li>1/2 Doese geschälte Tomaten</li>
-          <li>1/2 Doese geschälte Tomaten</li>
-        </ul>
-      </div>
-      <div class="instruction">
+    <h1>{{ recipe.title }}</h1>
+    <div class="flex">
+        <img mat-card-image src="https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1040&q=80" alt="food">
+        <div class="ingredients">
+            <h2>Zutaten</h2>
+            <ul class="ingredients-list">
+                <li *ngFor="let ingredient of recipe.ingredients">{{ ingredient.ingredient }}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="instruction">
         <h2>Zubereitung</h2>
         <ul class="instruction-list">
-          <li class="instrunction-step">
-            Zwiebel und Knoblauch schälen und beides fein hacken. Karotten schälen, abspülen und in feine Ringe schneiden.
-            Zucchini waschen, Süßkartoffel schälen und beides in ca. 1 cm große Würfel schneiden.
-          </li>
-          <li class="instrunction-step">
-            Zwiebel und Knoblauch schälen und beides fein hacken. Karotten schälen, abspülen und in feine Ringe schneiden.
-            Zucchini waschen, Süßkartoffel schälen und beides in ca. 1 cm große Würfel schneiden.
-          </li>
-          <li class="instrunction-step">
-            Zwiebel und Knoblauch schälen und beides fein hacken. Karotten schälen, abspülen und in feine Ringe schneiden.
-            Zucchini waschen, Süßkartoffel schälen und beides in ca. 1 cm große Würfel schneiden.
-          </li>
+            <li class="instrunction-step" *ngFor="let step of recipe.instruction; index as i">
+                <span>{{ i + 1 }}</span>
+                {{ step.description }}
+            </li>
         </ul>
-      </div>
     </div>
-  </div>
 </div>

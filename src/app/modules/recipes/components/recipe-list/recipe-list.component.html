@@ -1,24 +1,13 @@
-<app-search></app-search>
-
+<!--
 <div class="sub-navbar">
-  <li class="sub-navbar-item">
-    <a href="">Breakfast</a>
-  </li>
-  <li class="sub-navbar-item">
-    <a href="">Lunch</a>
-  </li>
-  <li class="sub-navbar-item">
-    <a href="">Baking</a>
-  </li>
+    <li class="sub-navbar-item" *ngFor="let category of categories">
+        <a href="">{{ category }}</a>
+    </li>
 </div>
+-->
 <div class="recipe-list">
-  <app-recipe-list-item></app-recipe-list-item>
-  <app-recipe-list-item></app-recipe-list-item>
-  <app-recipe-list-item></app-recipe-list-item>
-  <app-recipe-list-item></app-recipe-list-item>
-  <app-recipe-list-item></app-recipe-list-item>
-  <app-recipe-list-item></app-recipe-list-item>
+    <app-recipe-list-item *ngFor="let recipe of (recipes$ | async); trackBy: trackByFn" [recipe]="recipe"></app-recipe-list-item>
 </div>
 <a id="create-recipe" href="/recipe/new">
-  <mat-icon>add</mat-icon>
+    <mat-icon>add</mat-icon>
 </a>

@@ -1,6 +1,12 @@
-<a routerLink="/recipe/123">
-  <mat-card class="recipe-list-item">
-    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-    <mat-card-title>Rezept</mat-card-title>
-  </mat-card>
-</a>
+<mat-card class="recipe-list-item">
+    <img mat-card-image src="https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1040&q=80" alt="food">
+    <a [routerLink]="['/recipe', recipe.id]">
+        <mat-card-title>{{ recipe.title }}</mat-card-title>
+    </a>
+    <div class="recipe-list-item-actions">
+        <a [routerLink]="['/recipe', recipe.id, 'edit']">
+            <mat-icon>edit</mat-icon>
+        </a>
+        <mat-icon (click)="deleteRecipe()">delete</mat-icon>
+    </div>
+</mat-card>

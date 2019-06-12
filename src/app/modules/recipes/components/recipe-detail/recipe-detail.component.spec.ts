@@ -1,28 +1,26 @@
-/*
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { RecipedetailComponent } from './recipe-detail.component';
+import {RecipeDetailComponent} from './recipe-detail.component';
 
-describe('RecipedetailComponent', () => {
-  let component: RecipedetailComponent;
-  let fixture: ComponentFixture<RecipedetailComponent>;
+describe('RecipeDetailComponent', () => {
+    let component: RecipeDetailComponent;
+    let fixture: ComponentFixture<RecipeDetailComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ RecipedetailComponent ]
-    })
-    .compileComponents();
-  }));
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            declarations: [RecipeDetailComponent]
+        })
+            .compileComponents();
+    }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(RecipedetailComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(RecipeDetailComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 
 });
-*/
