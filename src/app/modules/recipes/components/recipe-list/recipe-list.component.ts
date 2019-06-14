@@ -15,13 +15,10 @@ export class RecipeListComponent implements OnInit {
 
     @Select(RecipesState.recipes) recipes$: Observable<RecipeModel[]>;
 
-    //categories: Array<any> = ['Hauptspeise', 'Nachspeise', 'Frühstück', 'Backen', 'Vegetarisch', 'Vegan'];
-
     constructor(private store: Store,) {}
 
     ngOnInit() {
         this.store.dispatch(new GetRecipes());
-        console.log(this.recipes$);
     }
 
     trackByFn(recipe: RecipeModel) {

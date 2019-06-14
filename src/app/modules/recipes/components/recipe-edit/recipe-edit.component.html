@@ -42,9 +42,9 @@
             </mat-form-field>
         </div>
 
-        <span class="button-add" (click)="addIngredient()">
-        <mat-icon>add</mat-icon> Zutat
-      </span>
+        <span class="button-add button-add-ingredient" (click)="addIngredient()">
+            <mat-icon>add</mat-icon> Zutat
+          </span>
 
         <h2>Zubereitungsschritte</h2>
         <div formArrayName="instruction"
@@ -54,10 +54,9 @@
                        value="{{ step.value.description }}">
             </mat-form-field>
         </div>
-
-        <span class="button-add" (click)="addStep()">
-        <mat-icon>add</mat-icon> Zubereitung
-      </span>
+        <span class="button-add button-add-step" (click)="addStep()">
+            <mat-icon>add</mat-icon> Zubereitung
+        </span>
 
         <div class="form-element button-submit">
             <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!createRecipeForm.valid">

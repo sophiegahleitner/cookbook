@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {RecipeService} from '../../services/recipe.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {RecipeModel} from "../../models/recipe.model";
 import {CreateRecipe, GetRecipe, UpdateRecipe} from "../../store/recipes.action";
@@ -19,7 +18,7 @@ export class RecipeEditComponent implements OnInit {
     @Select(RecipesState.recipeDetail) recipeDetail$: Observable<RecipeModel>;
 
     recipe: RecipeModel = new RecipeModel();
-    editRecipe: boolean = false;
+    editRecipe: boolean = true;
 
     // form
     createRecipeForm: FormGroup;
@@ -35,7 +34,6 @@ export class RecipeEditComponent implements OnInit {
     constructor(
         private formBuilder: FormBuilder,
         private store: Store,
-        private recipeService: RecipeService,
         private router: Router,
         private route: ActivatedRoute,
     ) {}
