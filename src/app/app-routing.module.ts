@@ -7,20 +7,27 @@ import {LoginComponent} from './modules/authentication/components/login/login.co
 import {ProfileComponent} from './modules/authentication/components/profile/profile.component';
 import {NotFoundComponent} from "./modules/general/components/not-found/not-found.component";
 import {RecipeEditComponent} from "./modules/recipes/components/recipe-edit/recipe-edit.component";
-
+import { ForgotPasswordComponent } from '../../../../angular_cookbook_new/cookbook/src/app/modules/authentication/components/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from '../../../../angular_cookbook_new/cookbook/src/app/modules/authentication/components/verify-email/verify-email.component';
+// Import canActivate guard services
+import { AuthGuard } from "../../../../angular_cookbook_new/cookbook/src/app/shared/guard/auth.guard";
+import { SecureInnerPagesGuard } from "../../../../angular_cookbook_new/cookbook/src/app/shared/guard/secure-inner-pages.guard";
+// Include route guard in routes array
 const routes: Routes = [
     {
         path: '',
         pathMatch: 'full',
         redirectTo: 'recipes'
     },
-    {path: 'recipes', component: RecipeListComponent},
-    {path: 'recipe/new', component: RecipeEditComponent, data: {editRecipe: false}},
-    {path: 'recipe/:id', component: RecipeDetailComponent},
-    {path: 'recipe/:id/edit', component: RecipeEditComponent, data: {editRecipe: true}},
-    {path: 'register', component: RegisterComponent},
-    {path: 'login', component: LoginComponent},
-    {path: 'profile', component: ProfileComponent},
+    {path: 'recipes', component: RecipeListComponent, canActivate: [AuthGuard]},
+    {path: 'recipe/new', component: RecipeEditComponent, canActivate: [AuthGuard], data: {editRecipe: false}},
+    {path: 'recipe/:id', component: RecipeDetailComponent, canActivate: [AuthGuard]},
+    {path: 'recipe/:id/edit', component: RecipeEditComponent, canActivate: [AuthGuard], data: {editRecipe: true}},
+    {path: 'register', component: RegisterComponent, canActivate: [SecureInnerPagesGuard]},
+    {path: 'login', component: LoginComponent, canActivate: [SecureInnerPagesGuard]},
+    {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
+    { path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [SecureInnerPagesGuard] },
+    { path: 'verify-email-address', component: VerifyEmailComponent, canActivate: [SecureInnerPagesGuard] },
     {
         path: '**',
         component: NotFoundComponent

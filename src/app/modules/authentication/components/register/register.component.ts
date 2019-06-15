@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
-
+import { AuthService } from "../../../../shared/services/auth.service";
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -8,7 +7,9 @@ import { FormControl } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+      public authService: AuthService
+  ) { }
 
   ngOnInit() {
   }
