@@ -14,11 +14,14 @@
 }
 
 .recipe-list {
-  padding: 0 100px;
 
   > * {
     width: 25%;
     display: inline-block;
+
+    @media screen and (max-width: 970px) {
+      width: 50%;
+    }
   }
 }
 

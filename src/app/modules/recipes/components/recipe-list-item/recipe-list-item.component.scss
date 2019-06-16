@@ -1,3 +1,7 @@
 .recipe-list-item {
   margin: 20px;
+
+  mat-card-title {
+    min-height: 70px;
+  }
 }

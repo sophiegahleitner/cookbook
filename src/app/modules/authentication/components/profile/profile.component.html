@@ -1,44 +1,18 @@
-<!-- Top navigation -->
-
-<div class="container-fluid">
-  <div class="row">
-    <!-- Main content -->
-    <mat-card>
-      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-        <div class="inner-adjust">
-          <div class="pt-3 pb-2 mb-3 border-bottom">
-            <mat-card-title>
-              <h1 class="h2">User Profil</h1>
-
-            </mat-card-title>
-          </div>
-          <!-- Show user data when logged in -->
-          <div class="row" *ngIf="authService.userData as user">
-            <div class="col-md-12">
-              <div class="media">
-                <img class="align-self-start mr-5 img-thumbnail rounded-circle" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
-                     alt="{{user.displayName}}">
-                <mat-card-content>
-                  <div class="media-body">
-                    <h2>Hallo: <strong>{{(user.displayName) ? user.displayName : user.email}}</strong></h2>
-                    <h3>Account Details</h3>
-                    <p>User ID: <strong>{{user.uid}}</strong></p>
-                    <p>Email: <strong>{{user.email}}</strong></p>
-                    <p>Email verifiziert: <strong>{{user.emailVerified}}</strong></p>
-                  </div>
-                </mat-card-content>
-
-              </div>
-            </div>
-            <a mat-raised-button class="nav-link" routerLink="/recipes">Zu den Rezepten
-            </a>
-            <a mat-raised-button class="nav-link" style="background-color: red" (click)="authService.SignOut()"> Log
-              out</a>
-
-            <!--<img class="brand-logo" src="assets/logo-positronx-white.svg" alt="positronX.io Logo">-->
-          </div>
+<div class="profile-page">
+    <h1 class="h2">Profilseite</h1>
+    <div *ngIf="authService.userData as user">
+        <h2>Hallo {{(user.displayName) ? user.displayName : user.email}}</h2>
+        <div class="flex">
+            <img class="align-self-start mr-5 img-thumbnail rounded-circle"
+                 src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}" alt="{{user.displayName}}">
+            <mat-card-content>
+                <h3>Account Details</h3>
+                <p>User ID: <strong>{{user.uid}}</strong></p>
+                <p>Email: <strong>{{user.email}}</strong></p>
+                <p>Email verifiziert: <strong>{{user.emailVerified}}</strong></p>
+            </mat-card-content>
         </div>
-      </main>
-    </mat-card>
-  </div>
+        <a mat-raised-button class="nav-link" routerLink="/recipes">Zu den Rezepten</a>
+        <a mat-raised-button class="nav-link" (click)="authService.SignOut()">Abmelden</a>
+    </div>
 </div>

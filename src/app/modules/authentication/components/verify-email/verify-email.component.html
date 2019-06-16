@@ -1,21 +1,14 @@
-<div class="displayTable">
-  <div class="displayTableCell">
-    <div class="authBlock">
-        <h2>Danke für die Registrierung</h2>
-      <div class="formGroup" *ngIf="authService.userData as user">
-          <p class="text-center">Wir haben die eine Verifizierungsmail an <strong>{{user.email}}</strong> gesendet.</p>
-          <p class="text-center">Bevor du dich einloggen kannst, musst du deine Email Adresse bestätigen</p>
-      </div>
-      <!-- Calling SendVerificationMail() method using authService Api -->
-      <div class="formGroup">
-          <a type="button" mat-raised-button class="btn btnPrimary" (click)="authService.SendVerificationMail()">
-          <i class="fas fa-redo-alt"></i>
-              Verifikationsmail erneut senden
-          </a>
-      </div>
+<div class="verify-email-address">
+    <h1>Danke für die Registrierung</h1>
+    <div class="formGroup" *ngIf="authService.userData as user">
+        <p class="text-center">Wir haben die eine Verifizierungsmail an <strong>{{user.email}}</strong> gesendet.</p>
+        <p class="text-center">Bevor du dich einloggen kannst, musst du deine Email Adresse bestätigen</p>
     </div>
-      <div class="redirectToLogin" style="margin-top: 20px">
-          <span>Zurück zum Login? <a mat-raised-button class="redirect" routerLink="/login"> Log in</a></span>
+    <div class="formGroup">
+        <a type="button" mat-raised-button class="btn-verify" (click)="authService.SendVerificationMail()">Verifikationsmail erneut senden</a>
     </div>
-  </div>
+    <div class="redirectToLogin" style="margin-top: 20px">
+        <span>Zurück zum Login? <a mat-raised-button class="redirect" routerLink="/login">Anmelden</a></span>
+    </div>
 </div>
+

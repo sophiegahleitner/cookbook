@@ -1,0 +1,16 @@
+.profile-page {
+  .flex {
+    display: flex;
+    margin: 50px 0;
+
+    & > * {
+      width: calc(50% - 10px);
+    }
+
+    img {
+      height: auto;
+      width: auto;
+      margin-right: 20px;
+    }
+  }
+}
