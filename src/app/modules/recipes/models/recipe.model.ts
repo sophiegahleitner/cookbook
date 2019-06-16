@@ -3,6 +3,7 @@ export class RecipeModel {
     title: string;
     time: number;
     difficulty: string;
+    userid: string;
     //categories: Category[];
     ingredients: Ingredient[];
     instruction: Instruction[];

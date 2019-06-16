@@ -1,29 +1,58 @@
+
 <div class="displayTable">
-  <div class="displayTableCell">
-    <div class="authBlock">
-      <h3>Sign Up</h3>
-      <div class="formGroup">
-        <input type="email" class="formControl" placeholder="Email Address" #userEmail required>
-      </div>
-      <div class="formGroup">
-        <input type="password" class="formControl" placeholder="Password" #userPwd required>
-      </div>
-      <div class="formGroup">
-        <input type="button" class="btn btnPrimary" value="Sign Up" (click)="authService.SignUp(userEmail.value, userPwd.value)">
-      </div>
-      <div class="formGroup">
-        <span class="or"><span class="orInner">Or</span></span>
-      </div>
-      <!-- Continue with Google -->
-      <div class="formGroup">
-        <button type="button" class="btn googleBtn" (click)="authService.GoogleAuth()">
-          <i class="fab fa-google-plus-g"></i>
-          Continue with Google
-        </button>
-      </div>
-    </div>
-    <div class="redirectToLogin">
-      <span>Already have an account? <span class="redirect" routerLink="/login" routerLinkActive="active">Log In</span></span>
-    </div>
-  </div>
+
+    <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title>Registrieren</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="displayTableCell">
+                <div class="authBlock">
+                    <mat-form-field class="form-element">
+                        <div class="formGroup">
+                            <input matInput type="text" class="formControl" placeholder="Email" #userEmail required>
+                        </div>
+                    </mat-form-field>
+                    <mat-form-field class="form-element">
+                        <div class="formGroup">
+                            <input matInput type="password" class="formControl" placeholder="Passwort" #userPwd
+                                   required>
+                        </div>
+                    </mat-form-field>
+                    <!-- Calling SignIn Api from AuthService -->
+                    <!--<div class="formGroup">-->
+                    <!--<input type="button" class="btn btnPrimary" value="Log in" (click)="authService.SignIn(userName.value, userPassword.value)">-->
+                    <!--</div>-->
+                    <mat-card-actions>
+                        <!--<input type="button" class="btn btnPrimary" value="Sign Up" (click)="authService.SignUp(userEmail.value, userPwd.value)">-->
+                        <button mat-raised-button (click)="authService.SignUp(userEmail.value, userPwd.value)"
+                                color="primary">Registrieren
+                        </button>
+                    </mat-card-actions>
+                    <div class="formGroup">
+                        <span class="or"><span class="orInner">oder</span></span>
+                    </div>
+                    <!-- Calling GoogleAuth Api from AuthService -->
+                    <div class="formGroup">
+                        <mat-card-actions>
+                            <button mat-raised-button (click)="authService.GoogleAuth()" color="primary">Login mit
+                                Google
+                            </button>
+                        </mat-card-actions>
+                    </div>
+                    <div class="forgotPassword">
+                        <a mat-raised-button routerLink="/forgot-password">Passwort vergessen?</a>
+                    </div>
+                </div>
+                <div class="redirectToLogin" style="margin-top: 5px;">
+                    <a mat-raised-button routerLink="/login">Du hast schon einen Account?<span> Login</span></a>
+
+
+                </div>
+            </div>
+        </mat-card-content>
+
+    </mat-card>
 </div>
+
+

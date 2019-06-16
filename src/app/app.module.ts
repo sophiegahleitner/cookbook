@@ -8,15 +8,13 @@ import {GeneralModule} from "./modules/general/general.module";
 import {MaterialModule} from './modules/general/material.module';
 import {RecipesModule} from './modules/recipes/recipes.module';
 
-import { AuthService } from "../../../../angular_cookbook_new/cookbook/src/app/shared/services/auth.service";
-import { ForgotPasswordComponent } from '../../../../angular_cookbook_new/cookbook/src/app/modules/authentication/components/forgot-password/forgot-password.component';
-
+import {AuthService} from "./shared/services/auth.service";
+import {ForgotPasswordComponent} from './modules/authentication/components/forgot-password/forgot-password.component';
 // firebase
 import {AngularFireModule} from '@angular/fire';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {environment} from '../environments/environment';
-import { AngularFireAuthModule } from "@angular/fire/auth";
-
+import {AngularFireAuthModule} from "@angular/fire/auth";
 // app
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
@@ -55,4 +53,6 @@ import {RecipesState} from "./modules/recipes/store/recipes.state";
     ]
 })
 export class AppModule {
+
 }
+

@@ -3,7 +3,7 @@
     <a [routerLink]="['/recipe', recipe.id]">
         <mat-card-title>{{ recipe.title }}</mat-card-title>
     </a>
-    <div class="recipe-list-item-actions">
+    <div class="recipe-list-item-actions" *ngIf="localStorageUserId() === recipe.userid">
         <a [routerLink]="['/recipe', recipe.id, 'edit']">
             <mat-icon>edit</mat-icon>
         </a>

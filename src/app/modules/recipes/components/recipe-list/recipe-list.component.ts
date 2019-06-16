@@ -24,4 +24,5 @@ export class RecipeListComponent implements OnInit {
     trackByFn(recipe: RecipeModel) {
         return recipe.id;
     }
+
 }

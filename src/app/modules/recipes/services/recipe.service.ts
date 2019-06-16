@@ -35,6 +35,19 @@ export class RecipeService {
         );
     }
 
+    getRecipesByUser(userid): Observable<RecipeModel[]> {
+        let recipeCollection = this.firestore.collection<RecipeModel>('recipes');
+        return recipeCollection.snapshotChanges().pipe(
+            map(actions => {
+                return actions.map(a => {
+                    const data = a.payload.doc.data() as RecipeModel;
+                    const id = a.payload.doc.id;
+                    return {id, ...data};
+                });
+            })
+        );
+    }
+
     createRecipe(recipe: RecipeModel) {
         return new Promise((resolve, reject) => {
             this.firestore.collection('recipes').add(JSON.parse(JSON.stringify(recipe)))

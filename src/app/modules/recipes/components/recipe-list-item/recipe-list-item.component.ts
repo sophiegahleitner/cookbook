@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {RecipeModel} from "../../models/recipe.model";
-import {CreateRecipe, DeleteRecipe} from "../../store/recipes.action";
+import {DeleteRecipe} from "../../store/recipes.action";
 import {Store} from "@ngxs/store";
 
 @Component({
@@ -20,5 +20,9 @@ export class RecipeListItemComponent implements OnInit {
         if(confirm('Willst du das Rezept wirklich löschen?')) {
             this.store.dispatch(new DeleteRecipe(this.recipe.id));
         }
+    }
+
+    public localStorageUserId(): string {
+        return JSON.parse(localStorage.getItem("user")).uid;
     }
 }

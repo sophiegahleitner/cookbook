@@ -10,6 +10,13 @@ export class GetRecipes {
     static readonly type = '[Recipes List] GetRecipes';
 }
 
+export class GetRecipesByUser {
+    static readonly type = '[Recipes List] GetRecipes';
+
+    constructor(public userid: string) {
+    }
+}
+
 export class GetRecipe {
     static readonly type = '[Recipe Detail] GetRecipe';
 

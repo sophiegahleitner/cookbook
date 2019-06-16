@@ -36,7 +36,7 @@
 
         <h2>Zutaten</h2>
         <div formArrayName="ingredients"
-             *ngFor="let item of createRecipeForm.get('ingredients').controls; let i = index;">
+             *ngFor="let item of createRecipeForm.get('ingredients')['controls']; let i = index;">
             <mat-form-field class="form-element" [formGroupName]="i">
                 <input matInput placeholder="Zutat" formControlName="ingredient" value="{{ item.value.ingredient }}">
             </mat-form-field>
@@ -48,7 +48,7 @@
 
         <h2>Zubereitungsschritte</h2>
         <div formArrayName="instruction"
-             *ngFor="let step of createRecipeForm.get('instruction').controls; let i = index;">
+             *ngFor="let step of createRecipeForm.get('instruction')['controls']; let i = index;">
             <mat-form-field class="form-element" [formGroupName]="i">
                 <input matInput placeholder="Zubereitung" formControlName="description"
                        value="{{ step.value.description }}">

@@ -46,6 +46,13 @@ export class RecipeEditComponent implements OnInit {
             this.store.dispatch(new GetRecipe(id));
 
             this.recipeDetail$.subscribe(data => {
+
+
+                if (this.editRecipe && data.userid !== JSON.parse(localStorage.getItem("user")).uid && data.userid) {
+                    window.alert("You can just edit your own recipes");
+                    this.router.navigate(['/recipe/' + id]);
+                }
+
                 this.recipe = {
                     id: data.id,
                     title: data.title,
@@ -54,6 +61,7 @@ export class RecipeEditComponent implements OnInit {
                     ingredients: data.ingredients,
                     instruction: data.instruction,
                 } as RecipeModel;
+
                 this.createForm();
                 if (!isNullOrUndefined(this.recipe.ingredients)) {
                     this.recipe.ingredients.forEach((item) => {
@@ -107,11 +115,13 @@ export class RecipeEditComponent implements OnInit {
     }
 
     onSubmit(data) {
+
         this.recipe.title = data.title;
         this.recipe.time = data.time;
         this.recipe.difficulty = data.difficulty;
         this.recipe.ingredients = data.ingredients;
         this.recipe.instruction = data.instruction;
+        this.recipe.userid = JSON.parse(localStorage.getItem("user")).uid;
 
         if (this.editRecipe) {
             this.store.dispatch(new UpdateRecipe(this.recipe.id, this.recipe)).subscribe(() => {
@@ -122,5 +132,6 @@ export class RecipeEditComponent implements OnInit {
                 this.router.navigate(['/']);
             });
         }
+
     }
 }

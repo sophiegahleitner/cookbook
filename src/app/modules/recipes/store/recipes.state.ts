@@ -1,7 +1,7 @@
 import {Action, Selector, State, StateContext} from '@ngxs/store';
 import {RecipesStateModel} from "../models/recipesState.model";
 import {RecipeModel} from "../models/recipe.model";
-import {CreateRecipe, GetRecipe, GetRecipes, DeleteRecipe, UpdateRecipe} from "./recipes.action";
+import {CreateRecipe, DeleteRecipe, GetRecipe, GetRecipes, UpdateRecipe} from "./recipes.action";
 import {RecipeService} from '../services/recipe.service';
 import {tap} from "rxjs/internal/operators";
 
@@ -36,6 +36,7 @@ export class RecipesState {
         //recipe.categories = action.recipe.categories;
         recipe.ingredients = action.recipe.ingredients;
         recipe.instruction = action.recipe.instruction;
+        recipe.userid = action.recipe.userid;
 
         this.recipeService.createRecipe(recipe)
             .then((res) => {
@@ -63,6 +64,17 @@ export class RecipesState {
             });
         }));
     }
+
+    // @Action(GetRecipesByUser)
+    // getRecipesByUser(context: StateContext<RecipesStateModel>) {
+    //     return this.recipeService.getRecipesByUser().pipe(tap((result) => {
+    //         const state = context.getState();
+    //         context.patchState({
+    //             ...state,
+    //             recipes: result,
+    //         });
+    //     }));
+    // }
 
     @Action(GetRecipe)
     getRecipe(context: StateContext<RecipesStateModel>, action: GetRecipe) {
